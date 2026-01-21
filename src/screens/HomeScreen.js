@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import EnhancedVideoPlayer from '../components/EnhancedVideoPlayer';
+import ModernVideoPlayer from '../components/ModernVideoPlayer';
 
 const HomeScreen = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -24,6 +24,16 @@ const HomeScreen = () => {
 
   // Sample video data - in a real app, this would come from an API
   const [videos, setVideos] = useState([
+    {
+      id: '0',
+      title: 'Gumlet HLS Video',
+      thumbnail: 'https://picsum.photos/400/225?random=0',
+      duration: '0:00',
+      views: '0',
+      uploadTime: 'Just added',
+      channel: 'Gumlet',
+      url: 'https://video.gumlet.io/689e7391b41f23af9809196c/6943994fad648471cb58cc93/main.m3u8',
+    },
     {
       id: '1',
       title: 'Sample HLS Stream',
@@ -146,7 +156,7 @@ const HomeScreen = () => {
 
   if (selectedVideo) {
     return (
-      <EnhancedVideoPlayer
+      <ModernVideoPlayer
         videoUri={selectedVideo.url}
         videoTitle={selectedVideo.title}
         onClose={handleClosePlayer}
